@@ -8,46 +8,36 @@
     </ui:define>
     <ui:define name="content">
         <p:dataGrid var="clothe" value="#{clothesBean.clothList}" columns="6" rows="3">
-            <p:column>
-
+            <p:column>               
+                <p:commandLink action="post"> <p:graphicImage value="#{name[0]}" />
+                </p:commandLink>
                 <h:panelGrid columns="1">
-                    <p:commandLink action="index"> 
-                        <p:graphicImage value="../resources/images/#{clothe.imgName}"/>
-                    </p:commandLink>
-                    <h:outputText value="#{clothe.size}" /> 
-
+                    <p:graphicImage value="../resources/images/#{clothe.imgName}"/>
+                    <h:outputText value="#{clothe.size}" />
                     <h:outputText value="#{clothe.color}"/>
                     <p:commandLink  title="View Detail">
                         <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
                         <f:setPropertyActionListener value="#{clothe}" target="#{clothesBean.selected}" />
                     </p:commandLink>
+                    <p:commandLink value="For Test postPage" action="post"/>
+                    <p:commandLink value="For Test register" action="register"/>
                 </h:panelGrid>
-
-
             </p:column>
         </p:dataGrid>
 
-        <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:outputPanel id="carDetail" style="text-align:center;">
-                <p:panelGrid  columns="2" rendered="#{not empty clothesBean.selected}" columnClasses="label,value">
-                    <f:facet name="header">
-                        <p:graphicImage name="../resources/images/#{clothesBean.selected.imgName}"/> 
-                    </f:facet>
-
-                    <h:outputText value="Id:" />
-                    <h:outputText value="#{clothesBean.selected.name}" />
-
-                    <h:outputText value="size" />
-                    <h:outputText value="#{clothesBean.selected.color}" />
-
-                    <h:outputText value="Color:" />
-                    <h:outputText value="#{clothesBean.selected.color}" style="color:#{clothesBean.selected.color}"/>
-
-                    <h:outputText value="Price" />
-                    <h:outputText value="$#{dataGridView.selectedCar.price}" />
-                </p:panelGrid>
-            </p:outputPanel>
-        </p:dialog>
+        <!--        <p:dataTable var="name" value="# {clothesBean.clothList}">
+                    <p:column>
+        
+                        <p:commandLink action="index"> <p:graphicImage value="# {name[0]}" />
+                        </p:commandLink>
+        
+        
+                    </p:column>
+                    <p:column>
+        
+                        <p:graphicImage value="# {name[1]}" />
+                    </p:column>
+                </p:dataTable>-->
 
     </ui:define>
 </ui:composition>

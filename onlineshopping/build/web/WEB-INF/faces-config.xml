@@ -10,7 +10,13 @@
     <application>
     <resource-bundle>
       <base-name>mum.edu.controller.messages</base-name>
-      <var>msg</var>
-    </resource-bundle>
+      <var>msg</var> 
+       <base-name>mum.edu.controller.labels</base-name>
+      <var>lab</var>            
+    </resource-bundle> 
+     <resource-bundle> 
+      <base-name>mum.edu.controller.postErrors</base-name>
+      <var>err</var> 
+     </resource-bundle> 
   </application>
 </faces-config>
